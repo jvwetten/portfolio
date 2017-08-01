@@ -1,0 +1,410 @@
+
+@import "var.scss";
+@import 'mixins.scss';
+@import 'normalise.scss';
+@import "extends.scss";
+
+.background-home {
+  background: $background-home no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 15%;
+
+  @media (max-width: 1200px){
+    padding: 20% 5% 0 5%;
+  }
+
+  @media (max-width: 920px){
+    padding-top: 25%;
+  }
+
+  @media (max-width: 768px){
+    padding-top: 15%;
+  }
+}
+
+.home-h1 {
+  @include h1;
+  @extend %home-h1;
+  text-align: center;
+  color: $white-color;
+  @include margin-nul;
+}
+
+.home-h2 {
+  @include h2;
+  @extend %text-homepage;
+  font-family: $lato;
+}
+
+.home-buttons {
+  text-align: center;
+
+    .aboutme-button {
+      @include button(about);
+      margin-right: 3%;
+    }
+
+    .mywork-button {
+      @include button(about);
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+  @media (max-width: 768px){
+    margin-top: 115px;
+  }
+}
+
+a:hover {
+  color: $purple-color;
+
+  h2:hover {
+    color: $purple-color;
+  }
+}
+
+/*navigation*/
+
+.menu {
+  @include navigation;
+
+  @media (max-width: 768px){
+    display: none;
+  }
+}
+
+.body-projects {
+  height: 97vh;
+
+  .menu {
+    @include projectpage-navigation;
+  }
+
+  margin: 0;
+}
+
+
+.menu__mobile {
+  text-align: right;
+  display: none;
+
+  @media (max-width: 768px){
+    display: block;
+  }
+
+  i {
+    font-size: 45px;
+    padding: 20px;
+  }
+}
+
+.menu__mobile--x {
+  text-align: right;
+  display: none;
+
+  i {
+    font-size: 45px;
+    padding: 20px;
+  }
+}
+
+.menu__mobile--nav {
+  background-color: $black-color;
+  height: 100vh;
+  width: 100%;
+  display: none;
+
+  ul {
+    padding: 0;
+    text-align: center;
+
+    li {
+      list-style: none;
+      padding: 10px;
+
+      a {
+        font-size: 37px;
+        text-decoration: none;
+        color: $white-color;
+
+        &:hover {
+          color: $purple-color;
+        }
+      }
+    }
+  }
+}
+
+
+
+.close {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+
+/*aboutme.html*/
+
+.body-about {
+  margin: 0;
+  height: 100vh;
+  min-height: 960px;
+
+  @media (max-width: 1000px){
+    min-height: 1170px;
+  }
+
+  @media (max-width: 700px){
+    min-height: 700px;
+  }
+}
+
+.leftside {
+  @include leftside;
+}
+
+.rightside {
+  @include rightside;
+}
+
+table {
+  @include table;
+  width: 20%;
+  float: left;
+
+  tr {
+    height: 40px;
+  }
+}
+
+.tableskills-seo {
+  @media (max-width: 1000px) {
+    clear: both;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 700px){
+    padding-bottom: 10%;
+  }
+}
+
+p, td {
+  font-family: $lato;
+  font-size: 15px;
+}
+
+.links {
+  clear: both;
+  padding: 5% 10%;
+
+  @media (max-width: 700px){
+    padding: 10px 12.5% 50px 12.5%;
+    text-align: center;
+  }
+
+  .links-linkedin {
+    display: flex;
+
+    @media (max-width: 700px){
+      justify-content: center;
+    }
+
+    a {
+      @include links;
+
+      &:hover {
+        background-color: $purple-color;
+      }
+    }
+
+    a:nth-child(1){
+      margin-right: 2%;
+
+      @media (max-width: 700px){
+        margin-right: 3%;
+      }
+    }
+    a:nth-child(2){
+      @media (max-width: 700px){
+        margin-left: 3%;
+      }
+    }
+  }
+}
+
+
+
+/*projects.html*/
+
+.frontend-projects {
+  @include projects(front-end);
+}
+
+.seo-projects {
+  @include projects(seo);
+}
+
+
+/*SEO-projects*/
+
+.body_seo {
+  margin-bottom: 100px;
+}
+
+.sidebar_white {
+  @include sidebar;
+  @include sidebar_black;
+}
+
+.seoproject {
+  @include project;
+  @include seo-project;
+}
+
+/*Front-end projects*/
+
+.body_frontend {
+  @include projectpage-navigation;
+  background-color: $black-color;
+  margin-bottom: 100px;
+}
+
+.frontend-project {
+  @include project;
+  @include frontend-project;
+}
+
+.sidebar_black {
+  @include sidebar;
+  @include sidebar_white;
+}
+
+.frontend_project--title {
+  color: $white-color;
+  margin-left: 15%;
+}
+
+.seo_project--title {
+  color: $black-color;
+  margin-left: 15%;
+}
+
+
+
+/*Sub projects*/
+
+.subproject {
+  @include subproject__topimage;
+}
+
+.subproject__text {
+  width: 70%;
+  margin: 45px 0 45px 15%;
+  @include line-height;
+
+  h1 {
+    margin-top: 0;
+  }
+}
+
+.subproject__screenshot--image {
+  width: 45%;
+  margin-left: 27.5%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.subproject__screenshot {
+  background: url('../Projecten/project-images/Cat/code4.jpeg') center center fixed;
+}
+
+.subproject__navigation {
+  height: 80px;
+  text-align: center;
+}
+
+.previous {
+  @include button(subproject);
+  left: 0;
+  margin-left: 15%;
+}
+
+.previous__mobile {
+  @include button(subproject);
+  display: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  margin-left: 15%;
+  margin-top: 0;
+
+  &:hover {
+    background: none;
+  }
+
+  @media (max-width: 768px){
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    p {
+      color: $black-color;
+      margin: 0;
+      font-size: 65px;
+      padding: 0;
+    }
+  }
+}
+
+.next {
+  @include button(subproject);
+  right: 0;
+  margin-right: 15%;
+}
+
+.next__mobile {
+  @include button(subproject);
+  display: none;
+  border: none;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  margin-right: 15%;
+  margin-top: 0;
+
+  &:hover {
+    background: none;
+  }
+
+  @media (max-width: 768px){
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    p {
+      color: $black-color;
+      margin: 0;
+      font-size: 65px;
+      padding: 0;
+    }
+  }
+}
+
+.overview {
+  @extend %overview-button;
+}
+
+.subproject__footer {
+  @extend %subproject__footer;
+}

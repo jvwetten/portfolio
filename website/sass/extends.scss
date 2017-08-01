@@ -1,0 +1,73 @@
+@import "var.scss";
+@import "mixins.scss";
+
+%home-h1 {
+  font-size: $h1-fontsize;
+  line-height: 90px;
+
+  @media (max-width: 610px){
+    font-size: 90px;
+  }
+
+  @media (max-width: 510px){
+    font-size: 80px;
+  }
+
+  @media (max-width: 400px){
+    font-size: 70px;
+    line-height: 70px;
+  }
+}
+
+%text-homepage{
+  text-align: center;
+  color: $white-color;
+}
+
+
+%subproject__footer {
+  text-align: center;
+  background-color: $black-color;
+  padding: 30px 30px 30px 40px;
+
+  h2 {
+    color: $white-color;
+    font-size: 36px;
+    margin: 0 0 20px 0;
+  }
+
+  a {
+    @include links;
+    display: inline-block;
+    background-color: $white-color;
+    margin: 0 10px;
+
+    i {
+      color: $black-color;
+    }
+
+    &:hover {
+      background-color: $purple-color;
+    }
+  }
+}
+
+%overview-button {
+  display: inline-block;
+  text-align: center;
+  margin: 20px 0;
+
+  &:hover {
+    background-color: $purple-color;
+  }
+
+  a {
+    i {
+      color: $black-color;
+      @include font-awesome;
+      padding: 3px 5px 0 5px;
+      border: 2px solid $black-color;
+      margin: 0;
+    }
+  }
+}

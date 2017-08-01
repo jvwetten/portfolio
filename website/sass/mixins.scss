@@ -1,0 +1,546 @@
+
+@import 'var.scss';
+
+@mixin margin-nul {
+  margin: 0;
+}
+
+@mixin padding-text {
+  padding: 0 10%;
+}
+
+/*line-height */
+
+@mixin line-height{
+  p {
+    line-height: 22px;
+    margin-bottom: 25px;
+  }
+}
+
+@mixin h1 {
+  font-family: $Rozha-one;
+}
+
+@mixin h2 {
+  font-size: $h2-fontsize;
+  @include margin-nul;
+
+  @media (max-width: 610px){
+    font-size: 25px;
+  }
+
+  @media (max-width: 510px){
+    font-size: 30px;
+  }
+
+  @media (max-width: 460px){
+    font-size: 27px;
+  }
+}
+
+
+
+@mixin button($page-type) {
+  text-decoration: none;
+  color: $white-color;
+  border: 2px solid $white-color;
+  font-family: $lato;
+  font-size: 19px;
+  width: 10%;
+  text-align: center;
+  padding: 10px;
+  display: inline-block;
+  margin-top: 50px;
+  font-weight: bold;
+
+  &:hover {
+    background-color: #AA6DB8;
+  }
+
+  @media (max-width: 920px){
+    width: 20%;
+  }
+
+  @if $page-type == subproject {
+    border: 2px solid $black-color;
+    padding: 0;
+    position: absolute;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    @media (max-width: 768px){
+      display: none;
+    }
+
+    a {
+      text-decoration: none;
+      p {
+        color: $black-color;
+        padding: 10px;
+        margin: 0;
+      }
+    }
+  }
+
+  @else {
+    @media (max-width: 768px){
+      display: block;
+      width: 40%;
+      padding: 25px;
+      text-align: center;
+      margin-left: 25%;
+    }
+  }
+
+
+}
+
+@mixin leftside {
+  width: 34%;
+  float: left;
+  display: inline-block;
+
+  background: $background-about no-repeat center left fixed;
+  background-size: contain;
+  height: 100%;
+
+  @media (max-width: 1200px){
+    width: 40%;
+  }
+
+  @media (max-width: 700px){
+    width: 100%;
+    float: none;
+    background-position: center left;
+    background-size: cover;
+  }
+
+  .blackoverlay {
+    background: rgba(44, 44, 44, 0.5);
+    height: 100%;
+
+    .aboutme-h1 {
+      @include margin-nul;
+      padding-top: 15%;
+      padding-right: 5%;
+      text-align: right;
+      font-size: 78px;
+      color: $white-color;
+
+      @media (max-width: 700px){
+        margin-right: 10%;
+        padding-top: 20%;
+      }
+    }
+
+    .aboutme-h2 {
+      color: $black-color;
+    }
+  }
+}
+
+@mixin rightside {
+  width: 66%;
+  display: inline-block;
+
+  @media (max-width: 1300px){
+    width: 60%;
+  }
+
+  @media (max-width: 700px){
+    width: 100%;
+  }
+
+  .aboutme-tekst {
+    width: 50%;
+    padding: 3.5% 5% 2% 10%;
+    @include line-height;
+
+    @media (max-width: 1200px){
+      width: 75%;
+    }
+
+    @media (max-width: 700px){
+      padding: 5% 12.5%;
+    }
+  }
+
+  .skills {
+    @include padding-text;
+
+    @media (max-width: 700px){
+      padding: 0 12.5%;
+    }
+  }
+}
+
+
+@mixin table {
+
+  @media (max-width: 1200px){
+    width: 30%;
+  }
+
+  @media (max-width: 1000px){
+    width: 50%;
+  }
+
+  .skills-logo {
+    width: 25%;
+
+    @media (max-width: 1200px) {
+
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+
+@mixin navigation {
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+
+    .menu-list--item {
+      list-style: none;
+      margin-right: 3%;
+
+      a {
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        color: $black-color;
+      }
+    }
+
+    .current {
+      a {
+        color: $purple-color;
+      }
+    }
+  }
+}
+
+@mixin projectpage-navigation {
+  .menu {
+    .menu-list {
+      margin: 0;
+      padding: 20px;
+      background-color: $black-color;
+
+      a {
+        color: $white-color;
+      }
+    }
+  }
+
+  .menu {
+    .menu-list {
+      .current {
+        a {
+          color: $purple-color;
+        }
+      }
+    }
+  }
+}
+
+@mixin font-awesome {
+  font-size: 32px;
+  margin-top: 9px;
+  margin-bottom: 9px;
+}
+
+@mixin links {
+  display: block;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  background-color: $black-color;
+  text-align: center;
+  text-decoration: none;
+
+  i {
+    color: $white-color;
+    font-size: 32px;
+    margin-top: 9px;
+    margin-bottom: 9px;
+    @include font-awesome;
+  }
+}
+
+@mixin projects-title {
+  text-align: center;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+  }
+
+  h2 {
+    font-size: 60px;
+    z-index: 1;
+  }
+}
+
+@mixin projects($type-project){
+  height: 48%;
+
+  @if $type-project == front-end {
+    background: $black-color;
+
+    .frontend-image {
+      background: url('../images/frontend.jpg') no-repeat center left;
+      background-size: contain;
+      height: 100%;
+
+      @media (max-width: 768px){
+        background-size: cover;
+      }
+
+      .blackoverlay {
+        background: rgba(44, 44, 44, 0.5);
+        height: 100%;
+      }
+    }
+
+    .frontend-title {
+      @include projects-title;
+
+      a {
+        width: 50%;
+        margin-left: 25%;
+      }
+
+      h2 {
+        color: $white-color;
+      }
+    }
+  }
+
+  @else if $type-project == seo {
+    background: $white-color;
+
+    .seo-image {
+      background: url('../images/seo.jpg') no-repeat center right;
+      background-size: contain;
+      height: 100%;
+
+      @media (max-width: 768px){
+        background-size: cover;
+      }
+
+      .whiteoverlay {
+        background: rgba(255, 255, 255, 0.4);
+        height: 100%;
+      }
+    }
+
+    .seo-title {
+      @include projects-title;
+
+      a {
+        width: 50%;
+        margin-left: 25%;
+      }
+
+      h2 {
+        color: $black-color;
+      }
+    }
+  }
+
+  @else {
+
+  }
+}
+
+
+@mixin sidebar {
+  width: 90px;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+
+  a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 768px){
+    display: none;
+  }
+
+  .sidebar__black {
+    width: 100%;
+    margin-top: 350px;
+
+    p {
+      -ms-transform: rotate(270deg); /* IE 9 */
+      -webkit-transform: rotate(270deg); /* Chrome, Safari, Opera */
+      transform: rotate(270deg);
+      width: 100%;
+      font-size: 20px;
+
+      &:hover {
+        color: $purple-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .sidebar__triangle {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+    width: 50px;
+    height: 50px;
+    margin-left: 70%;
+    position: absolute;
+  }
+}
+
+@mixin sidebar_white {
+  background-color: $white-color;
+
+  p {
+    color: $black-color;
+  }
+
+  .sidebar__triangle {
+    background-color: $white-color;
+    margin-top: -30px;
+  }
+
+  .sidebar__black {
+    margin-top: 330px;
+  }
+}
+
+@mixin sidebar_black {
+  background-color: $black-color;
+
+  p {
+    color: $white-color;
+  }
+
+  .sidebar__triangle {
+    background-color: $black-color;
+    margin-top: -50px;
+  }
+
+  .sidebar__black {
+    margin-top: 350px;
+  }
+}
+
+
+
+@mixin project {
+
+  width: 60%;
+  margin-left: 20%;
+  height: 275px;
+
+  @media (max-width: 1260px){
+    height: 350px;
+  }
+
+  @media (max-width: 1260px){
+    height: 350px;
+  }
+
+  img {
+    height: 40%;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .project_leftpicture {
+    left: 15%;
+
+    @media (max-width: 900px){
+      left: 23%;
+    }
+
+    @media (max-width: 768px){
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .project_rightpicture {
+    right: 10%;
+
+    @media (max-width: 900px){
+      left: 23%;
+    }
+
+    @media (max-width: 768px){
+      left: 0;
+      right: 0;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  a {
+    text-align: center;
+    text-decoration: none;
+
+    h2 {
+      font-size: 52px;
+      position: absolute;
+      margin: 8% auto 0 auto;
+      left: 25%;
+      right: 25%;
+
+      @media (max-width: 768px){
+        left: 0;
+        right: 0;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+    }
+  }
+}
+
+@mixin frontend-project {
+  a {
+    h2 {
+      color: $white-color;
+    }
+  }
+}
+
+@mixin seo-project {
+  a {
+    h2 {
+      color: $black-color;
+    }
+  }
+}
+
+
+
+/*sub projects*/
+
+@mixin subproject__topimage {
+  .subproject__topimage {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+
+
